@@ -32,6 +32,8 @@ await axios.post('http://localhost:4005/events', {
         id,
         title
     }
+}).catch(err => {
+    console.log(err);    
 });
 res.status(201).send(posts[id]);
 

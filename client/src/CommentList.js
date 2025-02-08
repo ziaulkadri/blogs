@@ -4,10 +4,18 @@ function CommentList({comments}) {
 
 
     const renderedComments = comments.map(comment => {
+      let content;
+      if (comment.status === 'approved') {
+        content = comment.content;
+      } else if (comment.status === 'pending') {
+        content = 'This comment is awaiting moderation';
+      } else {
+        content = 'This comment has been rejected';
+      }
         return (
             <li  key={comment.id}>
                 
-                    {comment.content}
+                    {content}
                
             </li>
         );
